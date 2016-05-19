@@ -5,13 +5,13 @@
     <meta charset="UTF-8">
     <title>Experiod</title>
     <!-- SOCIAL MEDIA ICONS -->
-    <link rel="stylesheet" type="text/css" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" type="text/css" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <!-- GOOGLE FONTS -->
     <link href='https://fonts.googleapis.com/css?family=Dancing+Script:700|Oswald' rel='stylesheet' type='text/css'>
     <!-- Bootstrap core CSS -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
     <!-- MDB core CSS -->
-    <link href="http://mdbootstrap.com/mdbcdn/mdb.min.css" rel="stylesheet">
+    <link href="https://mdbootstrap.com/mdbcdn/mdb.min.css" rel="stylesheet">
     <!-- LOCAL CSS -->
     <link rel="stylesheet" type="text/css" href="css/main-page-handlebars.css">
 </head>
@@ -142,7 +142,36 @@
     <!-- Bootstrap core JavaScript -->
     <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <!-- MDB core JavaScript -->
-    <script type="text/javascript" src="http://mdbootstrap.com/mdbcdn/mdb.min.js"></script>
+    <script type="text/javascript" src="https://mdbootstrap.com/mdbcdn/mdb.min.js"></script>
 </body>
 
 </html>
+<script type="text/javascript">
+var user ={
+        latitude:'',
+        longitude:''
+    };
+$(document).ready(function(){
+    
+
+    if (navigator.geolocation){
+      navigator.geolocation.getCurrentPosition(getPosition);
+    }
+    else{
+      console.log("nope");
+    }
+});
+function getPosition(position){ 
+    user.latitude=position.coords.latitude;
+    user.longitude=position.coords.longitude;
+    postData();   
+};
+function postData(){
+    console.log(user);
+      //  $.post('/api/users-restuarants', user, function(err, data) {
+            
+        //});
+}
+
+        
+</script>

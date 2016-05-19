@@ -1,0 +1,32 @@
+body{
+	background-image: url("../images/background/dark.jpg");
+}
+
+
+
+.jumbotron {
+    background-image: url("../images/background/dark.jpg");
+}
+
+.jumbotron h1 {
+    color: red;
+}
+
+.row{
+	color:red;
+}
+
+.row h3{
+	font-weight: bold;
+	font-size: 24px;
+}
+
+.btn-primary {
+	background-color:red;
+	font-weight:bold;
+}
+
+option{
+	background-color:black;
+	color:red;
+}

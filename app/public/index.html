@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Experiod</title>
+    <!-- SOCIAL MEDIA ICONS -->
+    <link rel="stylesheet" type="text/css" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- GOOGLE FONTS -->
+    <link href='https://fonts.googleapis.com/css?family=Dancing+Script:700|Oswald' rel='stylesheet' type='text/css'>
+    <!-- Bootstrap core CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+    <!-- MDB core CSS -->
+    <link href="http://mdbootstrap.com/mdbcdn/mdb.min.css" rel="stylesheet">
+    <!-- LOCAL CSS -->
+    <link rel="stylesheet" type="text/css" href="css/landing-page.css">
+    <!-- RESET CSS -->
+    <link rel="stylesheet" href="css/reset.css">
+</head>
+
+<body>
+    <!-- NAV -->
+    <nav class="navbar default-transparent">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <img src="images/logo/minilogo.png" class="img-responsive">
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#" class="waves-effect waves-light">Home <span class="sr-only">(current)</span></a></li>
+                    <li><a href="#" class="waves-effect waves-light">Restaurants</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- /NAV -->
+    <div class="container text-center">
+        <div class="row logo">
+            <div class="col-md-6 col-md-offset-3">
+                <img src="images/logo/mainlogo.png" class="img-responsive animated slideInDown">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3 icons">
+                <a href=""><i class="ion-social-facebook"></i></a>
+                <a href="https://github.com/BryantBello/Soup-A-Stars"><i class="ion-social-octocat"></i></a>
+                <a href=""><i class="ion-social-linkedin-outline"></i></a>
+                <a href=""><i class="ion-social-twitter"></i></a>
+            </div>
+            <div class="col-md-6 col-md-offset-3">
+                <button class="btn btn-danger btn-lg animated infinite pulse" onclick="window.signin();">Get started
+                </button>
+            </div>
+        </div>
+    </div>
+    <!-- JQuery -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="http://mdbootstrap.com/mdbcdn/mdb.min.js"></script>
+    <!-- BACKGROUND CHANGER -->
+    <script src="javascript/main-page-background.js"></script>
+    <!-- OAUTH SCRIPT -->
+    
+    <script src="https://cdn.auth0.com/js/lock-9.1.min.js"></script>
+    <script type="text/javascript">
+
+    var lock = new Auth0Lock('rIZ3xtbY00Y3XcGTAyykN7eROiNPlWEN', 'bryantbello.auth0.com');
+    function signin() {
+        lock.show({
+            callbackURL: 'http://localhost:3020/user',
+            responseType: 'code',
+            authParams: {
+                scope: 'openid profile' // Learn about scopes: https://auth0.com/docs/scopes 
+            },
+
+        });
+    }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,27 @@
+h1 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 100px;
+}
+
+h2 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 70px;
+}
+
+a {
+    color: white;
+}
+
+.navbar-nav {
+    font-size: 20px;
+}
+
+.logo {
+    margin-top: 250px;
+    color: white;
+}
+
+.icons {
+    font-size: 50px;
+    color: white;
+}

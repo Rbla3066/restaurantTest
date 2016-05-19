@@ -1,0 +1,42 @@
+Project Title
+------------------
+Soup-A-Stars
+
+Team Members
+-------------------------------
+Bryant Bello
+Robert Black
+Wojtek 
+Waverly
+
+
+Project Description
+----------------------------------
+
+A personalized search engine application to find what your stomach desires.
+
+
+Sketch of Final Product
+---------------------------------------------
+
+
+
+Data to be used or acquired
+-------------------------------------------
+
+Yelp Dataset
+Zomato API
+Locu API
+MySQL
+EXPRESS
+Node
+Bootstrap
+Sequelize
+Trello
+MVC 
+Github
+
+
+Rough Breakdown of Tasks
+--------------------------------------------
+

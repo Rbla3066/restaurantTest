@@ -1,0 +1,38 @@
+{
+  "name": "soupastars",
+  "version": "1.0.0",
+  "description": "Find restaurants based on answers from short survey and more.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BryantBello/Soup-A-Stars.git"
+  },
+  "keywords": [
+    "Restaurant",
+    "Directions",
+    "Survey",
+    "Fun",
+    "Food",
+    "Soup"
+  ],
+  "author": "RB BB WG WP",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BryantBello/Soup-A-Stars/issues"
+  },
+  "homepage": "https://github.com/BryantBello/Soup-A-Stars#readme",
+  "dependencies": {
+    "body-parser": "^1.15.1",
+    "cookie-parser": "^1.4.1",
+    "express": "^4.13.4",
+    "express-session": "^1.13.0",
+    "mysql": "^2.10.2",
+    "passport": "^0.3.2",
+    "passport-auth0": "^0.5.1",
+    "sequelize": "^3.23.1"
+  }
+}

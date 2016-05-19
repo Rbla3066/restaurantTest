@@ -29,28 +29,7 @@ staticContentFolder = __dirname + '/app/public';
 app.use(express.static(staticContentFolder));
 
 
-// require('./app/routing/api-routes.js')(app); //curently no api routes
-
-
-
-
-
-app.get('/user',
-  passport.authenticate('auth0', { failureRedirect: '/' }),
-  function(req, res) {
-    if (!req.user) {
-      throw new Error('user null');
-    }
-    res.redirect("/restaurants");
-  });
-
-app.get('/restaurants', function (req, res) {
-  res.redirect('/stuff');
-});
-app.get('/stuff', function(req, res){
-  res.json(req.user)
-})
-
+require('./app/routing/api-routes.js')(app);
 require('./app/routing/html-routes.js')(app);
 
 app.listen(PORT,function(){

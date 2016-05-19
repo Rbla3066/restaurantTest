@@ -4,12 +4,19 @@
 <head>
     <meta charset="UTF-8">
     <title>Experiod</title>
+    <script type="text/javascript" src="js/jquery-2.2.3.min.js"></script>
+    <script type="text/javascript" src='js/tether.min.js'></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="js/mdb.js"></script>
+    
     <!-- SOCIAL MEDIA ICONS -->
-    <link rel="stylesheet" type="text/css" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" type="text/css" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <!-- GOOGLE FONTS -->
     <link href='https://fonts.googleapis.com/css?family=Dancing+Script:700|Oswald' rel='stylesheet' type='text/css'>
     <!-- Bootstrap core CSS -->
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
     <!-- MDB core CSS -->
     <link href="css/mdb.min.css" rel="stylesheet">
     <!-- LOCAL CSS -->
@@ -41,30 +48,11 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <ul class="collection z-depth-3">
+                
+                <ul id="restaurants" class="collection z-depth-3">
                     <li class="collection-item avatar">
-                        <img src="images/main-page/img.jpg" alt="" class="circle">
-                        <span class="title">Restaurant Name</span>
-                        <p>Description</p>
-                        <br>
-                        <p>last comment</p>
-                        <p class="text-right" id="address">Address</p>
-                    </li>
-                    <li class="collection-item avatar">
-                        <img src="images/main-page/img.jpg" alt="" class="circle">
-                        <span class="title">Restaurant Name</span>
-                        <p>Description</p>
-                        <br>
-                        <p>last comment</p>
-                        <p class="text-right" id="address">Address</p>
-                    </li>
-                    <li class="collection-item avatar">
-                        <img src="images/main-page/img.jpg" alt="" class="circle">
-                        <span class="title">Restaurant Name</span>
-                        <p>Description</p>
-                        <br>
-                        <p>last comment</p>
-                        <p class="text-right" id="address">Address</p>
+                        <span><h3 style='float: left; margin-left: 25px'>Finding Your Matches.. </h3></span><span><img class='text-right' src="images/spiffygif_46x46.gif" style='margin-top: 15px; margin-left: 35px'alt="" class="circle"><span></span>
+                        
                     </li>
                 </ul>
             </div>
@@ -138,11 +126,8 @@
     </footer>
     <!--/.Footer section-->
     <!-- JQuery -->
-    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-    <!-- Bootstrap core JavaScript -->
-    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-    <!-- MDB core JavaScript -->
-    <script type="text/javascript" src="js/mdb.min.js"></script>
+    
+
 </body>
 
 </html>
@@ -167,11 +152,29 @@ function getPosition(position){
     postData();   
 };
 function postData(){
-    console.log(user);
-      //  $.post('/api/users-restuarants', user, function(err, data) {
+    var url = window.location.origin + '/api/restaurants';
+    $.post(url, user, function(data) {
+        $("#restaurants").empty();
+        for(var i=0; i<data.length; i++){
+            var categories = "";
+            if(data[i].categories != undefined){
+                for(var j=0; j<data[i].categories.length; j++){
+                    if(data[i].categories[j] != undefined) categories += data[i].categories[j][0];
+                    if(j != data[i].categories.length -1) categories += ", ";
+                }
+            }
             
-        //});
+            $("#restaurants").append("<li class='collection-item avatar'><img src='"+data[i].image+"' class='circle'><span class='title'>"+data[i].name+"</span><p>"+categories+"</p><br><p>"+data[i].text+"</p><p class='text-xs-right address'>"+data[i].location.display_address[0]+"<br>"+data[i].location.display_address[1]+"</p></li>");
+        };
+    });
 }
-
+          //          <li class="collection-item avatar">
+          //              <img src="images/main-page/img.jpg" alt="" class="circle">
+          //              <span class="title">Restaurant Name</span>
+          //              <p>Description</p>
+          //              <br>
+          //              <p>last comment</p>
+          //              <p class="text-right" id="address">Address</p>
+          //          </li>
         
 </script>

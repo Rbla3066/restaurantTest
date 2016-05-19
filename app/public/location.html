@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Experiod</title>
+    <script type="text/javascript" src="js/jquery-2.2.3.min.js"></script>
+    <script type="text/javascript" src='js/tether.min.js'></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="js/mdb.js"></script>
+    
+    <!-- SOCIAL MEDIA ICONS -->
+    <link rel="stylesheet" type="text/css" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- GOOGLE FONTS -->
+    <link href='https://fonts.googleapis.com/css?family=Dancing+Script:700|Oswald' rel='stylesheet' type='text/css'>
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- MDB core CSS -->
+    <link href="css/mdb.min.css" rel="stylesheet">
+    <!-- LOCAL CSS -->
+    <link rel="stylesheet" type="text/css" href="css/main-page-handlebars.css">
+</head>
+
+<body>
+    <!-- NAV -->
+    <nav class="navbar red default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <img src="images/logo/minilogo.png" class="img-responsive">
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="/home" class="waves-effect waves-light">Home <span class="sr-only">(current)</span></a></li>
+                    <li><a href="#" class="waves-effect waves-light">Restaurants</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- /NAV -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <ul id="restaurants" class="collection z-depth-3">
+                    <li class="collection-item avatar">
+                        <span><h3 style='float: left; margin-left: 25px'>Finding Your Location.. </h3></span><span><img class='text-right' src="images/spiffygif_46x46.gif" style='margin-top: 15px; margin-left: 35px'alt="" class="circle"><span></span>
+                        
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+
+</body>
+
+</html>
+<script type="text/javascript">
+var user ={
+        latitude:'',
+        longitude:''
+    };
+$(document).ready(function(){
+    
+
+    if (navigator.geolocation){
+      navigator.geolocation.getCurrentPosition(getPosition);
+    }
+    else{
+      console.log("nope");
+    }
+});
+function getPosition(position){ 
+    user.latitude=position.coords.latitude;
+    user.longitude=position.coords.longitude;
+    postData();   
+};
+function postData(){
+    var url = window.location.origin;
+    $.post(url + '/api/location', user, function(user) {
+        console.log(user.picture)
+
+        $("#restaurants").html("<li class='collection-item avatar'><img class='circle' src='"+user.picture+"'><span class='title'>"+user.displayName+"<p>"+user.location.address+"</p></li><li class='collection-item avatar'><a class='btn btn-danger waves-effect waves-light' href='/main'>Find Restaurants</a></li>");
+    });
+}
+
+        
+</script>

@@ -6,20 +6,18 @@
 // =============================================================
 var path = require('path');
 
-function requiresLogin(req, res, next) {
-  if (!req.isAuthenticated()) {
-    return res.redirect('/');
-  }
-  next();
-}
+var requiresLogin = require('./requiresLogin.js');
 // Routes
 // =============================================================
 module.exports = function(app) {
     // if asked will send survey page
+    app.get('/location', function(req, res) {
+        res.sendFile(path.join(__dirname + '/../public/location.html'));
+    });
     app.get('/survey', function(req, res) {
         res.sendFile(path.join(__dirname + '/../public/restaurant.html'));
     });
-    app.get('/main', function(req, res)	{
+    app.get('/main', requiresLogin, function(req, res)	{
     	res.sendFile(path.join(__dirname + '/../public/main-page.html'));
     });
 

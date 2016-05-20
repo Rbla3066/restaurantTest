@@ -21,7 +21,7 @@ module.exports = function(app) {
         if(req.user.survey != undefined){
             res.sendFile(path.join(__dirname + '/../public/surveyRequest.html'));
         } else {
-            res.sendFile(path.join(__dirname + '/../public/restaurant.html'));
+            res.sendFile(path.join(__dirname + '/../public/survey.html'));
         }
     });
 

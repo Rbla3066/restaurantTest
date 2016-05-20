@@ -50,7 +50,7 @@
             <div class="col-md-12">
                 <ul id="restaurants" class="collection z-depth-3">
                     <li class="collection-item avatar">
-                        <span><h3 style='float: left; margin-left: 25px'>Finding Your Location.. </h3></span><span><img class='text-right' src="images/spiffygif_46x46.gif" style='margin-top: 15px; margin-left: 35px'alt="" class="circle"><span></span>
+                        <span><h3 style='float: left; margin-left: 25px'>Finding Your Survey Results... </h3></span><span><img class='text-right' src="images/spiffygif_46x46.gif" style='margin-top: 15px; margin-left: 35px'alt="" class="circle"><span></span>
                         
                     </li>
                 </ul>
@@ -107,48 +107,26 @@
                 </div>
             </div>
         </div>
+        <div class="social-section text-center">
+        </div>
         <div class="footer-copyright text-center rgba-black-light">
             <div class="container-fluid">
                 <p>© 2015 Copyright Experiod</p>
             </div>
         </div>
     </footer>
-    
 
 </body>
 
 </html>
 <script type="text/javascript">
-var user ={
-        latitude:'',
-        longitude:''
-    };
-$(document).ready(function(){
-    
-
-    if (navigator.geolocation){
-      navigator.geolocation.getCurrentPosition(getPosition);
-    }
-    else{
-      $("#restaurant").html("Your browser does not support location. Please enable geolocation services.")
-    }
-});
-function getPosition(position){ 
-    user.latitude=position.coords.latitude;
-    user.longitude=position.coords.longitude;
-    postData();   
-};
-function postData(){
     var url = window.location.origin;
-    $.post(url + '/api/location', user, function(user) {
-        if(user.location != undefined){
-            window.location.replace(url + '/main');
+   $.get(url + '/api/survey-request', function(result){
+        if(result){
+            window.location.replace(url + '/location')
         } else {
-            $("#restaurant").html("Error: we could not find your location!")
+            window.location.replace(url + '/survey')
         }
-        
-    });
-}
-
+   })
         
 </script>

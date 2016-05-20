@@ -59,6 +59,7 @@
             </div>
         </div>
     </div>
+    <div id='modalBox'></div>
     <!-- JQuery -->
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
     <!-- Bootstrap core JavaScript -->
@@ -71,7 +72,14 @@
     
     <script src="https://cdn.auth0.com/js/lock-9.1.min.js"></script>
     <script type="text/javascript">
-
+    var url = window.location.origin;
+    $.get(url + '/user-info', function(result){
+        console.log(result)
+        if(result.id != undefined){
+            $("#modalBox").append('<button type="button" id="modalSwitch" style="display:none" class="btn btn-primary" data-toggle="modal"data-target="#myModal">Details</button><div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"><div class="modal-dialog" role="document"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="false">&times;</span></button></div><div class="modal-body"><div class="row"><div class="col-md-5 col-sm-5"><img class="img-responsive" src='+result.picture+'></div><div class="col-md-7 col-sm-7"><br><h3 class="modal-title" style="font-size:20px" id="myModalLabel">Welcome Back '+result.displayName+'!</h3><br><a class="btn btn-danger waves-effect waves-light text-xs-center" href="/survey-request">Find Matches <span class="glyphicon glyphicon-search"></span></a><br><button type="button" class="btn btn-secondary text-xs-center" data-dismiss="modal">Not you?</button></div></div></div><div class="modal-footer"></div></div></div></div>');
+            $("#modalSwitch").click();
+        }
+    })
     var lock = new Auth0Lock('rIZ3xtbY00Y3XcGTAyykN7eROiNPlWEN', 'bryantbello.auth0.com');
     function signin() {
         lock.show({

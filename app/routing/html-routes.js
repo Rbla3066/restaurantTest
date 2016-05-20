@@ -11,19 +11,38 @@ var requiresLogin = require('./requiresLogin.js');
 // =============================================================
 module.exports = function(app) {
     // if asked will send survey page
-    app.get('/location', function(req, res) {
+    app.get('/location', requiresLogin, function(req, res) {
         res.sendFile(path.join(__dirname + '/../public/location.html'));
     });
-    app.get('/survey', function(req, res) {
-        res.sendFile(path.join(__dirname + '/../public/restaurant.html'));
+    app.get('/survey-request', requiresLogin, function(req, res) {
+        res.sendFile(path.join(__dirname + '/../public/surveyRequest.html'));
     });
+    app.get('/survey', requiresLogin, function(req, res) {
+        if(req.user.survey != undefined){
+            res.sendFile(path.join(__dirname + '/../public/surveyRequest.html'));
+        } else {
+            res.sendFile(path.join(__dirname + '/../public/restaurant.html'));
+        }
+    });
+
     app.get('/main', requiresLogin, function(req, res)	{
-    	res.sendFile(path.join(__dirname + '/../public/main-page.html'));
+    	if(req.user.survey != undefined && req.user.location != undefined){
+            res.sendFile(path.join(__dirname + '/../public/main-page.html'));
+        } else if(req.user.survey != undefined){
+            res.redirect('/location');
+        } else {
+            res.redirect('/survey');
+        }
     });
 
     // if other send index page
     app.use(function(req, res) {
-        res.sendFile(path.join(__dirname + '/../public/index.html'));
+        console.log(req.user);
+        if(req.user.survey != undefined){
+            res.sendFile(path.join(__dirname + '/../public/surveyRequest.html'));
+        } else {
+            res.sendFile(path.join(__dirname + '/../public/index.html'));
+        }
     });
 
 };

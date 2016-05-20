@@ -1,48 +1,178 @@
 <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
-    <title>Soup-A-Stars</title>
-    <!-- BOOTSTRAP AND JQUERY -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
-    <link href='https://fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/reset.css">
+    <title>Experiod</title>
+    <script type="text/javascript" src="js/jquery-2.2.3.min.js"></script>
+    <script type="text/javascript" src='js/tether.min.js'></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="js/mdb.js"></script>
+    
+    <!-- SOCIAL MEDIA ICONS -->
+    <link rel="stylesheet" type="text/css" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- GOOGLE FONTS -->
+    <link href='https://fonts.googleapis.com/css?family=Dancing+Script:700|Oswald' rel='stylesheet' type='text/css'>
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- MDB core CSS -->
+    <link href="css/mdb.min.css" rel="stylesheet">
+    <!-- LOCAL CSS -->
+    <link rel="stylesheet" type="text/css" href="css/main-page-handlebars.css">
 </head>
 
 <body>
-    <div class="jumbotron">
-        <h1 class="text-center">
-                Find the perfect place to eat tonight!!!
-            </h1>
-    </div>
-    <div class="row" id="color1">
-        <div class="col-md-2"></div>
-        <div class="col-md-8">
-            <h2>
-                <strong>ABOUT YOU:</strong>
-            </h2>
-            <h3>NAME (REQUIRED)</h3>
-            <input type="text" id="userName" class="form-control" required>
+    <!-- NAV -->
+    <nav class="navbar red default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <img src="images/logo/minilogo.png" class="img-responsive">
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="/home" class="waves-effect waves-light">Home <span class="sr-only">(current)</span></a></li>
+                    <li><a href="#" class="waves-effect waves-light">Restaurants</a></li>
+                </ul>
+            </div>
         </div>
-    </div>
-    <div class="row" id="color1">
-        <div class="col-md-2"></div>
-        <div class="col-md-8">
-            <h3></h3>
-            <input type="text" id="userImage" class="form-control" required>
-            <br>
-            <br>
-        </div>
-    </div>
+    </nav>
+    <!-- /NAV -->
+<div class="container">
     <div class="row" id="color1">
         <div class="col-md-2"></div>
         <div class="col-md-9">
-            <h3>1. You would rather goto Starbucks than Dunkin Donuts.</h3>
+            <p id="select">Please select which type of food, drink or type of place you are interested in. (Select as many of choice that fancy your stomach!)
+            </p>
+        </div>
+    </div>
+    <div>
+        <div class="row" id="color1">
+            <div class="col-md-2"></div>
+            <div class="col-md-9">
+                <label class="checkbox-inline">
+                    <input class="form-control" type="checkbox" id="inlineCheckbox1" value="option1"> Restaurants
+                </label>
+                <label class="checkbox-inline">
+                    <input class="form-control" type="checkbox" id="inlineCheckbox2" value="option2"> Pizza
+                </label>
+                <label class="checkbox-inline">
+                    <input class="form-control" type="checkbox" id="inlineCheckbox3" value="option3"> Italian
+                </label>
+                <label class="checkbox-inline">
+                    <input class="form-control" type="checkbox" id="inlineCheckbox4" value="option2"> Delis
+                </label>
+                <label class="checkbox-inline">
+                    <input class="form-control" type="checkbox" id="inlineCheckbox5" value="option3"> Sushi Bars
+                </label>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="row" id="color1">
+            <div class="col-md-2"></div>
+            <div class="col-md-9">
+                <label class="checkbox-inline">
+                    <input class="form-control" type="checkbox" id="inlineCheckbox6" value="option1"> Sandwiches
+                </label>
+                <label class="checkbox-inline">
+                    <input class="form-control" type="checkbox" id="inlineCheckbox7" value="option2"> American (Traditional)
+                </label>
+                <label class="checkbox-inline">
+                    <input class="form-control" type="checkbox" id="inlineCheckbox8" value="option3"> Nightlife
+                </label>
+                <label class="checkbox-inline">
+                    <input class="form-control" type="checkbox" id="inlineCheckbox9" value="option2"> Burgers
+                </label>
+                <label class="checkbox-inline">
+                    <input class="form-control" type="checkbox" id="inlineCheckbox10" value="option3"> American (New)
+                </label>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="row" id="color1">
+            <div class="col-md-2"></div>
+            <div class="col-md-9">
+                <label class="checkbox-inline">
+                    <input class="form-control" type="checkbox" id="inlineCheckbox11" value="option1"> Bars
+                </label>
+                <label class="checkbox-inline">
+                    <input class="form-control" type="checkbox" id="inlineCheckbox12" value="option2"> Breakfast & Brunch
+                </label>
+                <label class="checkbox-inline">
+                    <input class="form-control" type="checkbox" id="inlineCheckbox13" value="option3"> Chinese
+                </label>
+                <label class="checkbox-inline">
+                    <input class="form-control" type="checkbox" id="inlineCheckbox14" value="option2"> Fast Food
+                </label>
+                <label class="checkbox-inline">
+                    <input class="form-control" type="checkbox" id="inlineCheckbox15" value="option3"> Cafes
+                </label>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="row" id="color1">
+            <div class="col-md-2"></div>
+            <div class="col-md-9">
+                <label class="checkbox-inline">
+                    <input class="form-control" type="checkbox" id="inlineCheckbox16" value="option1"> Caterers
+                </label>
+                <label class="checkbox-inline">
+                    <input class="form-control" type="checkbox" id="inlineCheckbox17" value="option2"> Mexicans
+                </label>
+                <label class="checkbox-inline">
+                    <input class="form-control" type="checkbox" id="inlineCheckbox18" value="option3"> Bagels
+                </label>
+                <label class="checkbox-inline">
+                    <input class="form-control" type="checkbox" id="inlineCheckbox19" value="option2"> Diners
+                </label>
+                <label class="checkbox-inline">
+                    <input class="form-control" type="checkbox" id="inlineCheckbox20" value="option3"> Pubs
+                </label>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="row" id="color1">
+            <div class="col-md-2"></div>
+            <div class="col-md-9">
+                <label class="checkbox-inline">
+                    <input class="form-control" type="checkbox" id="inlineCheckbox21" value="option1"> Seafood
+                </label>
+                <label class="checkbox-inline">
+                    <input class="form-control" type="checkbox" id="inlineCheckbox22" value="option2"> Japanese
+                </label>
+                <label class="checkbox-inline">
+                    <input class="form-control" type="checkbox" id="inlineCheckbox23" value="option3"> Asian Fusion
+                </label>
+                <label class="checkbox-inline">
+                    <input class="form-control" type="checkbox" id="inlineCheckbox24" value="option2"> Thai
+                </label>
+                <label class="checkbox-inline">
+                    <input class="form-control" type="checkbox" id="inlineCheckbox25" value="option3"> Salad
+                </label>
+            </div>
+        </div>
+    </div>
+</div>
+    <div class="row" id="color1">
+        <div class="col-md-2"></div>
+        <div class="col-md-9">
+            <br>
+            <br>
+            <h2 id="information">Since we can see what you are interested, please fill out a few questions so we can suggest the perfect place for you!</h2>
+            <br>
+            <h3>How important is the ambience to you?</h3>
             <br>
             <select id="quest1">
                 <option value="0" selected="selected">ANSWER</option>
@@ -58,7 +188,7 @@
     <div class="row" id="color1">
         <div class="col-md-2"></div>
         <div class="col-md-9">
-            <h3>2. You would rather goto Burger King over McDonalds.</h3>
+            <h3>Are you looking to spend your whole paycheck or just have a quick bite?</h3>
             <br>
             <select id="quest2">
                 <option value="0" selected="selected">ANSWER</option>
@@ -74,7 +204,7 @@
     <div class="row" id="color1">
         <div class="col-md-2"></div>
         <div class="col-md-9">
-            <h3>3. When you are at the bar, you pay for the first round.</h3>
+            <h3>How important is parking to you? Unless you are taking a bike or public transportation of course!</h3>
             <br>
             <select id="quest3">
                 <option value="0" selected="selected">ANSWER!!!!!!!</option>
@@ -90,7 +220,7 @@
     <div class="row" id="color1">
         <div class="col-md-2"></div>
         <div class="col-md-9">
-            <h3>4. When out with friends, you always take the initiative???</h3>
+            <h3>Are you looking to go out somewhere that can accomidate a group?</h3>
             <br>
             <select id="quest4">
                 <option value="0" selected="selected">ANSWER</option>
@@ -106,7 +236,7 @@
     <div class="row" id="color1">
         <div class="col-md-2"></div>
         <div class="col-md-9">
-            <h3>5. When at work, you always take the initiative.</h3>
+            <h3>Is wheelchair accessibilty an neccessity?</h3>
             <br>
             <select id="quest5">
                 <option value="0" selected="selected">ANSWER</option>
@@ -122,7 +252,7 @@
     <div class="row" id="color1">
         <div class="col-md-2"></div>
         <div class="col-md-9">
-            <h3>6. You prefer an iPhone over an android.</h3>
+            <h3>Want to a place that is kid friendly or should we call the babysitter?</h3>
             <br>
             <select id="quest6">
                 <option value="0" selected="selected">ANSWER</option>
@@ -138,7 +268,7 @@
     <div class="row" id="color1">
         <div class="col-md-2"></div>
         <div class="col-md-9">
-            <h3>7. You prefer Sugar Free redbull over regular redbull. </h3>
+            <h3>Dessert is on the menu!! Care to partake using your sweet toothe? </h3>
             <br>
             <select id="quest7">
                 <option value="0" selected="selected">ANSWER</option>
@@ -154,7 +284,7 @@
     <div class="row" id="color1">
         <div class="col-md-2"></div>
         <div class="col-md-9">
-            <h3>8. Whiskey sippin' over taking a shot.</h3>
+            <h3>DANCE DANCE DANCE. Would you like to dance tonight or listen to some live music?</h3>
             <br>
             <select id="quest8">
                 <option value="0" selected="selected">ANSWER</option>
@@ -170,7 +300,7 @@
     <div class="row" id="color1">
         <div class="col-md-2"></div>
         <div class="col-md-9">
-            <h3>9. Choosing an urban life over country life.</h3>
+            <h3>How far are you willing to travel for the perfect night?</h3>
             <br>
             <select id="quest9">
                 <option value="0" selected="selected">ANSWER</option>
@@ -186,7 +316,7 @@
     <div class="row" id="color1">
         <div class="col-md-2"></div>
         <div class="col-md-9">
-            <h3>10. You think you will find a new friend using this survey.</h3>
+            <h3>Reservations so you do not have to wait for a table. Unless the place does not take reservations!</h3>
             <br>
             <select id="quest10">
                 <option value="0" selected="selected">ANSWER</option>
@@ -206,32 +336,70 @@
         </div>
         <br>
     </div>
-    <!-- Modal -->
-    <div id="resultsModal" class="modal fade" role="dialog">
-        <div class="modal-dialog">
-            <!-- Modal content-->
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h2 class="modal-title"><strong>YOUR BEST MATCH IS</strong></h2>
+</div>
+    <footer class="page-footer elegant-color center-on-small-only">
+        <div class="container-fluid">
+            <div class="row text-center">
+                <!--first column-->
+                <div class="col-md-3">
+                    <p class="column-title white-text">USEFUL LINKS</p>
+                    <ul>
+                        <li><a href="#">Contact us</a></li>
+                        <li><a href="#">Support</a></li>
+                        <li><a href="#">Bug Report</a></li>
+                        <li><a href="#">License</a></li>
+                    </ul>
                 </div>
-                <div class="modal-body">
-                    <h2 id="matchName">RESTAURANT</h2>
-                    <img class="responsive" id="matchImg" src="http://www.yelp.com/biz/hey-cookie-san-francisco" alt="">
+                <!--/.first column-->
+                <!--second column-->
+                <div class="col-md-3">
+                    <p class="column-title white-text">Similar</p>
+                    <ul>
+                        <li><a href="#">Book Hotel</a></li>
+                        <li><a href="#">Order Pizza</a></li>
+                        <li><a href="#">Go Out</a></li>
+                        <li><a href="#">Fun Places</a></li>
+                        <li><a href="#">Night-Life</a></li>
+                    </ul>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary btn-lg" data-dismiss="modal">Close</button>
+                <!--/.second column-->
+                <!--third column-->
+                <div class="col-md-3">
+                    <p class="column-title white-text">Popular</p>
+                    <ul>
+                        <li><a href="#">stakehouse.com</a></li>
+                        <li><a href="#">yelp.com</a></li>
+                        <li><a href="#">newrestautrant.com</a></li>
+                        <li><a href="#">enjoymore.com</a></li>
+                        <li><a href="#">njrestaurants.com</a></li>
+                    </ul>
+                </div>
+                <!--/.third column-->
+                <div class="col-md-3">
+                    <p class="column-title white-text">Popular</p>
+                    <ul>
+                        <li><a href="#">stakehouse.com</a></li>
+                        <li><a href="#">yelp.com</a></li>
+                        <li><a href="#">newrestautrant.com</a></li>
+                        <li><a href="#">enjoymore.com</a></li>
+                        <li><a href="#">njrestaurants.com</a></li>
+                    </ul>
                 </div>
             </div>
-            <style>
-            #matchImg {
-                width: 200px;
-                height: 140px;
-            }
-            </style>
+        </div>
+        <div class="footer-copyright text-center rgba-black-light">
+            <div class="container-fluid">
+                <p>© 2015 Copyright Experiod</p>
+            </div>
+        </div>
+        </div>
+    </footer>
+    
+
 </body>
 
 </html>
+
 <script type="text/javascript">
 //COLLECT FORM DATA
 $('#submitButton').on('click', function() {
@@ -262,32 +430,24 @@ $('#submitButton').on('click', function() {
     console.log(ans9);
     var ans10 = parseInt($("#quest10 option:selected").val());
     console.log(ans10);
+    var categories = [];
+    for(var i=1; i<26; i++){
+        if($("#inlineCheckbox"+i).prop("checked") == true){
+         categories.push($(".checkbox-inline").eq(i-1).text().trim())
+        };
+    };
     //CREATE A USER OBJECT OUT OF FORM SUBMISSION:
     var userData = {
-            name: userName,
-            photo: userPhoto,
-            scores: [ans1, ans2, ans3, ans4, ans5, ans6, ans7, ans8, ans9, ans10]
+            scores: [ans1, ans2, ans3, ans4, ans5, ans6, ans7, ans8, ans9, ans10],
+            categories: categories
         }
         //console.log("User " + userData.name);
     var currentURL = window.location.origin;
     //AJAX POST REQUEST
-    $.post(currentURL + "/api/friends", userData, function(data) {});
+    $.post(currentURL + "/api/survey", userData, function(data) {
+        console.log("success");
+        window.location.replace(currentURL + '/survey-request')
+    });
 
-
-    //CLEAR FORM
-    userName = $('#userName').val(" ");
-    userPhoto = $('#userImage').val(" ");
-    ans1 = $("#quest1").val(0);
-    ans2 = $("#quest2").val(0);
-    ans3 = $("#quest3").val(0);
-    ans4 = $("#quest4").val(0);
-    ans5 = $("#quest5").val(0);
-    ans6 = $("#quest6").val(0);
-    ans7 = $("#quest7").val(0);
-    ans8 = $("#quest8").val(0);
-    ans9 = $("#quest9").val(0);
-    ans10 = $("#quest10").val(0);
-    $("#resultsModal").modal('toggle');
-    return false;
 })
 </script>

@@ -29,7 +29,7 @@ module.exports = function(app){
 		}
 		if(bool) res.json(false);
 	});
-	
+
 	app.get('/api/restaurants', function(req, res){
 		if(req.user.location == undefined){
 			res.json(404);
@@ -90,9 +90,11 @@ module.exports = function(app){
 			} else {
 				req.user.location = {
 					longitude: req.body.longitude,
-					latitude: req.body.latitude,
-					address: data.results[0].formatted_address
+					latitude: req.body.latitude
 				};
+				if(data.results[0] != undefined){
+					req.user.location["address"] = data.results[0].formatted_address
+				}
 				res.json(req.user);
 			};
 		});

@@ -29,6 +29,7 @@ module.exports = function(app){
 		}
 		if(bool) res.json(false);
 	});
+	
 	app.get('/api/restaurants', function(req, res){
 		if(req.user.location == undefined){
 			res.json(404);

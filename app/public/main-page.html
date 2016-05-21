@@ -4,6 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <title>Experiod</title>
+    <meta name="keywords" content="RCB CODING NODE.JS NODE JAVASCRIPT HTML auth0 EXPRESS MEAN MySQL  REACT METEOR NoSQL SOCIAL YELP
+          DISCUSSION PROJECT HELP COLLABORATION GROUP CODE NEWJERSEY NEW JERSEY JQUERY HTML CSS BOOTSTRAP
+          LINUX WINDOWS MAC IOS ANDROID FULLSTACK FULL STACK DEV DEVELOPMENT JRDEV JR ">
+    <meta name="description" content="Survey based application to help a user find the perfect restaurant or bar to goto at anytime of the day or night. Whether the user wants a late night snack or a romantic dinner, we will place that person to the perfect location!!!!">
     <script type="text/javascript" src="js/jquery-2.2.3.min.js"></script>
     <script type="text/javascript" src='js/tether.min.js'></script>
     <!-- Bootstrap core JavaScript -->
@@ -143,10 +147,13 @@ $.get('/user-info', function(user){
     $("#location").html("<li><h4 class='title header text-xs-center'>Your matches near "+user.location.address+"</h4></li>");
     $("#userInfo").html("<span style='font-size:20px; color:white'>"+user.displayName+" <img style='height: 75px'src='"+user.picture+"'></span>")
     var url = window.location.origin + '/api/restaurants';
-    $.get(url, function(data) {
+    $.get(url, function(data, err) {
+        if(err){
+            $("#restaurants").append("No results Found");
+        };
         $("#restaurants").empty();
         for(var i=0; i<data.length; i++){
-            var categories = "";
+           var categories = "";
             if(data[i].categories != undefined){
                 for(var j=0; j<data[i].categories.length; j++){
                     if(data[i].categories[j] != undefined) categories += data[i].categories[j][0];

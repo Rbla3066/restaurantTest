@@ -31,7 +31,7 @@ module.exports = function(app){
 	});
 	app.get('/api/restaurants', function(req, res){
 		if(req.user.location == undefined){
-			res.json(null, "user info not found");
+			res.json(404);
 		} else {
 			var categories;
 			if(req.user.survey.categories == undefined){
@@ -70,7 +70,7 @@ module.exports = function(app){
 						finalResults.push(results[j]);
 						if(finalResults.length == 10){
 							bool = false;
-							res.json(finalResults, null);
+							res.json(finalResults);
 							return;
 						}
 					};

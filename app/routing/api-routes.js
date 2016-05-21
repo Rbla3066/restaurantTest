@@ -45,7 +45,7 @@ module.exports = function(app){
 				if(rests[i].location != undefined && rests[i].location.coordinate != undefined && rests[i].location.coordinate.latitude != undefined){
 					var loDif = Math.abs(req.user.location.longitude - rests[i].location.coordinate.longitude);
 					var laDif = Math.abs(req.user.location.latitude - rests[i].location.coordinate.latitude);
-					if(loDif < 0.06 && laDif < 0.06){
+					if(loDif < 0.08 && laDif < 0.08){
 						results.push(rests[i]);
 					}
 				}

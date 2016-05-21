@@ -158,9 +158,14 @@ $.get('/user-info', function(user){
                     if(j != data[i].categories.length -1) categories += ", ";
                 }
             }
-            
-            $("#restaurants").append("<li class='collection-item avatar'><span style='float:left'><img src='"+data[i].image+"' class='circle'><span style='font-size: 20px' class='title'>"+data[i].name+"</span><p>"+categories+"</p><button type='button' class='' data-toggle='modal' data-target='#myModal"+i+"'>Details</button></span><p class='text-xs-right address'><br>"+data[i].location.display_address[0]+"<br>"+data[i].location.display_address[1]+"</p></li>");
-            $("#modals").append('<div class="modal fade" id="myModal'+i+'" tabindex="-1" role="dialog" aria-labelledby="myModalLabel'+i+'" aria-hidden="true"><div class="modal-dialog" role="document"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="false">&times;</span></button><h3 class="modal-title" id="myModalLabel'+i+'">'+data[i].name+'</h3></div><div class="modal-body"><div class="row"><div class="col-md-5"><img class="img-responsive" style="height: 200px" src='+data[i].image+'></div><div class="col-md-7"><p class="title">'+data[i].display_phone+'</p><p>'+data[i].location.display_address[0]+', '+data[i].location.display_address[1]+'</p><img src="'+data[i].rating_img+'"><br>"'+data[i].text+'"</div></div></div><div class="modal-footer"><button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button></div></div></div></div>');
+            var image;
+            if(data[i].image == undefined){
+                image = '/favicon.ico';
+            } else {
+                image = data[i].image;
+            }
+            $("#restaurants").append("<li class='collection-item avatar'><span style='float:left'><img src='"+image+"' style='height: 75px; width: 75px' class='circle'><span style='font-size: 20px; margin-left: 25px' class='title'>"+data[i].name+"</span><p style='margin-left: 25px'>"+categories+"</p><button type='button' style='margin-left: 25px; border-radius: 5px' class='btn-danger' data-toggle='modal' data-target='#myModal"+i+"'>Details</button></span><p class='text-xs-right address'>"+data[i].location.display_address[0]+"<br>"+data[i].location.display_address[1]+"</p><br></li><div></div>");
+            $("#modals").append('<div class="modal fade" id="myModal'+i+'" tabindex="-1" role="dialog" aria-labelledby="myModalLabel'+i+'" aria-hidden="true"><div class="modal-dialog" role="document"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="false">&times;</span></button><h3 class="modal-title" id="myModalLabel'+i+'">'+data[i].name+'</h3></div><div class="modal-body"><div class="row"><div class="col-md-5"><img class="img-responsive" style="height: 200px" src='+image+'></div><div class="col-md-7"><p class="title">'+data[i].display_phone+'</p><p>'+data[i].location.display_address[0]+', '+data[i].location.display_address[1]+'</p><img src="'+data[i].rating_img+'"><br>"'+data[i].text+'"</div></div></div><div class="modal-footer"><button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button></div></div></div></div>');
 
         };
     });
